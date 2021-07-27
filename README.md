@@ -1,2 +1,2 @@
-# crud_flutter
-A simple crud aplication in flutter.
+# CRUD in Flutter
+A simple crud aplication in flutter. Made for study.
