@@ -26,6 +26,7 @@ class UsersProvider with ChangeNotifier {
       return;
     }
 
+    //update
     if (user.id != '' &&
         user.id.trim().isNotEmpty &&
         _items.containsKey(user.id)) {
@@ -39,7 +40,7 @@ class UsersProvider with ChangeNotifier {
         ),
       );
     } else {
-      //CREATE
+      //create
       final id = Random().nextDouble().toString();
       _items.putIfAbsent(
         id,
@@ -51,19 +52,10 @@ class UsersProvider with ChangeNotifier {
         ),
       );
     }
-
-    //teste para depois
-    // if (user.id != '' &&
-    //     user.id.trim().isNotEmpty &&
-    //     _items.containsKey(user.id)) {
-    //   _items.update(
-    //       user.id,
-    //       (_) => user);
-    // }
-
     notifyListeners();
   }
 
+  //DELETE
   void remove(User user) {
     if (user != '' && user.id != '') {
       _items.remove(user.id);
