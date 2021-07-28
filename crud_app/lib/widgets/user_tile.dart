@@ -1,7 +1,7 @@
-import 'package:crud_app/models/user.dart';
-import 'package:crud_app/provider/users_provider.dart';
-import 'package:crud_app/routes/app_routes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/models/user.dart';
+import 'package:flutter_crud/provider/users_provider.dart';
+import 'package:flutter_crud/routes/app_routes.dart';
 import 'package:provider/provider.dart';
 
 class UserTile extends StatelessWidget {

@@ -1,8 +1,8 @@
-import 'package:crud_app/provider/users_provider.dart';
-import 'package:crud_app/routes/app_routes.dart';
-import 'package:crud_app/views/user_form.dart';
-import 'package:crud_app/views/user_list.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/provider/users_provider.dart';
+import 'package:flutter_crud/routes/app_routes.dart';
+import 'package:flutter_crud/views/user_form.dart';
+import 'package:flutter_crud/views/user_list.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,14 +19,16 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-          title: 'CRUD',
-          theme: ThemeData(
-            primarySwatch: Colors.deepPurple,
-          ),
-          routes: {
-            AppRoutes.HOME: (_) => UserList(),
-            AppRoutes.USER_FORM: (_) => UserForm(),
-          }),
+        title: 'Flutter APP',
+        theme: ThemeData(
+          primarySwatch: Colors.deepPurple,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        routes: {
+          AppRoutes.HOME: (_) => UserList(),
+          AppRoutes.USER_FORM: (_) => UserForm()
+        },
+      ),
     );
   }
 }

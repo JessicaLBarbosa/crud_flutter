@@ -1,8 +1,8 @@
 import 'dart:math';
 
-import 'package:crud_app/data/dummy_users.dart';
-import 'package:crud_app/models/user.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_crud/data/dummy_users.dart';
+import 'package:flutter_crud/models/user.dart';
 
 class UsersProvider with ChangeNotifier {
   Map<String, User> _items = {...DUMMY_USERS};
@@ -27,7 +27,7 @@ class UsersProvider with ChangeNotifier {
     }
 
     //update
-    if (user.id != '' &&
+    if (user.id != null &&
         user.id.trim().isNotEmpty &&
         _items.containsKey(user.id)) {
       _items.update(
