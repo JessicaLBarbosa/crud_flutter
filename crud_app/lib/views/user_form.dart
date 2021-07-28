@@ -1,12 +1,35 @@
 import 'package:crud_app/models/user.dart';
 import 'package:crud_app/provider/users_provider.dart';
+//import 'package:crud_app/provider/users_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+//import 'package:provider/provider.dart';
 
-class UserForm extends StatelessWidget {
+class UserForm extends StatefulWidget {
   // const UserForm({Key? key}) : super(key: key);
+  @override
+  _UserFormState createState() => _UserFormState();
+}
+
+class _UserFormState extends State<UserForm> {
   final _form = GlobalKey<FormState>();
   final Map<String, String> _formData = {};
+
+  void _loadFormData(User user) {
+    if (user != '') {
+      _formData['id'] = user.id;
+      _formData['name'] = user.name;
+      _formData['email'] = user.email;
+      _formData['avatarUrl'] = user.avatarUrl;
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final user = ModalRoute.of(context)!.settings.arguments as User;
+    _loadFormData(user);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +41,7 @@ class UserForm extends StatelessWidget {
             icon: Icon(Icons.save),
             onPressed: () {
               final isValid = _form.currentState!.validate();
+              _loadFormData(user);
 
               if (isValid) {
                 _form.currentState!.save();
